@@ -1,24 +1,14 @@
+// src/App.tsx
 import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Chat from './components/Chat';
 
-const LandingPage = () => {
+const App: React.FC = () => {
   return (
-    <div>
-      <h1>Landing Page</h1>
+    <div className="flex h-screen">
+      <Sidebar />
+      <Chat />
     </div>
-  );
-}
-
-
-function App() {
-  return (
-
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage/>}/>
-      </Routes>
-    </Router>
   );
 }
 
