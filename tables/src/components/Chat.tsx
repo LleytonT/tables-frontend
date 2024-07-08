@@ -1,6 +1,7 @@
 // src/components/Chat.tsx
 import React, { useState } from 'react';
 import ProfileCard from './ProfileCard';
+import Sidebar from './Sidebar';
 
 const Chat: React.FC = () => {
   const [messages, setMessages] = useState<{ text: string; isUserMessage: boolean }[]>([]);
@@ -65,41 +66,44 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div className="w-3/4 h-screen bg-gray-100 p-6 flex flex-col">
-      <div className="flex">
-        <input
-          type="text"
-          className="flex-1 p-3 border border-gray-300 rounded-l mb-2"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Who can I talk to to learn more about the Peter Farrell Cup?"
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              handleSendMessage();
-            }
-          }}
-        />
-      </div>
-      <div className="flex-grow py-4 flex-nowrap">
-        <div className="flex space-x-4 justify-center h-full">
-          {profiles.map((profile, index) => (
-            <ProfileCard key={index} name={profile.name} profile={profile.profile} type={profile.type} image={profile.image} />
+    <div className="flex h-screen">
+        <Sidebar />
+      <div className="w-3/4 h-screen bg-gray-100 p-6 flex flex-col">
+        <div className="flex">
+          <input
+            type="text"
+            className="flex-1 p-3 border border-gray-300 rounded-l mb-2"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Who can I talk to to learn more about the Peter Farrell Cup?"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSendMessage();
+              }
+            }}
+          />
+        </div>
+        <div className="flex-grow py-4 flex-nowrap">
+          <div className="flex space-x-4 justify-center h-full">
+            {profiles.map((profile, index) => (
+              <ProfileCard key={index} name={profile.name} profile={profile.profile} type={profile.type} image={profile.image} />
+            ))}
+          </div>
+        </div>
+        <div className="flex-none overflow-auto mb-4">
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`p-4 rounded shadow mb-2 ${
+                msg.isUserMessage ? 'ml-12 bg-blue-100' : 'mr-12 bg-gray-100'
+              }`}
+            >
+              {msg.text}
+            </div>
           ))}
         </div>
+        
       </div>
-      <div className="flex-none overflow-auto mb-4">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`p-4 rounded shadow mb-2 ${
-              msg.isUserMessage ? 'ml-12 bg-blue-100' : 'mr-12 bg-gray-100'
-            }`}
-          >
-            {msg.text}
-          </div>
-        ))}
-      </div>
-      
     </div>
   );
 }
