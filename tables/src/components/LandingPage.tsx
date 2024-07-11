@@ -20,13 +20,6 @@ const LandingPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
 
-  const taglines = [
-    "For what you want not who you want",
-    "Build cool stuff with cool people",
-    "Be interesting and find interesting people",
-    "Find your crew, make it happen",
-  ]
-
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://s.pageclip.co/v1/pageclip.js";
