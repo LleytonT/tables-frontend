@@ -5,7 +5,6 @@ import {
   SignedIn,
   SignedOut,
   SignInButton,
-  UserButton,
   SignUpButton,
   SignOutButton,
 } from "@clerk/clerk-react";
@@ -31,15 +30,15 @@ const NavBar: React.FC = () => {
           </SignInButton>
 
           <SignUpButton mode="modal">
-          <button
-            className="login mr-2"
-            onClick={(e) => {
-              console.log("Login button clicked");
-            }}
-          >
-            Sign Up
-          </button>
-        </SignUpButton>
+            <button
+              className="login mr-2"
+              onClick={(e) => {
+                console.log("Login button clicked");
+              }}
+            >
+              Sign Up
+            </button>
+          </SignUpButton>
         </SignedOut>
 
         <SignedIn>
@@ -54,8 +53,6 @@ const NavBar: React.FC = () => {
             </button>
           </SignOutButton>
         </SignedIn>
-
-        
       </div>
     </nav>
   );
@@ -85,7 +82,7 @@ const LandingPage: React.FC = () => {
     <>
       <NavBar />
       <div className="flex flex-col justify-center items-center h-screen">
-        <h1 className="text-8xl font-bold">Welcome to Tables </h1>
+        <h1 className="title text-8xl font-bold">Welcome to Tables </h1>
 
         <Typewriter
           onInit={(typewriter) => {
@@ -114,13 +111,6 @@ const LandingPage: React.FC = () => {
               .changeDeleteSpeed(25)
               .start();
           }}
-          /* options={{
-          strings: taglines,
-          autoStart: true,
-          loop: true,
-          delay: 50,
-          deleteSpeed: 25,
-        }} */
         />
         <p className="text-lg mt-4">Drop your email.</p>
         <p className="text-lg mt-2">We'll let you know when we're ready!</p>

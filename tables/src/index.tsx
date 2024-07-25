@@ -1,20 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ClerkProvider } from '@clerk/clerk-react'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ClerkProvider } from "@clerk/clerk-react";
+import { neobrutalism } from "@clerk/themes";
 const CLERK_KEY = process.env.REACT_APP_CLERK_KEY as string;
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ClerkProvider publishableKey={CLERK_KEY} afterSignOutUrl="/">
+    <ClerkProvider
+      publishableKey={CLERK_KEY}
+      appearance={{
+        baseTheme: neobrutalism,
+      }}
+      afterSignOutUrl="/register"
+      afterSignInUrl="/chat"
+    >
       <App />
     </ClerkProvider>
-
   </React.StrictMode>
 );
 
