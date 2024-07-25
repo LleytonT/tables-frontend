@@ -80,70 +80,71 @@ const LandingPage: React.FC = () => {
 
   return (
     <>
-      <NavBar />
-      <div className="flex flex-col justify-center items-center h-screen">
-        <h1 className="title text-8xl font-bold">Welcome to Tables </h1>
-
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .changeDelay(50)
-              .typeString(addStyles("For what you want not who you want"))
-              .pauseFor(2500)
-              .deleteAll()
-              .changeDeleteSpeed(25)
-              .typeString(addStyles("Build cool stuff with cool people"))
-              .pauseFor(2500)
-              .deleteAll()
-              .changeDelay(50)
-              .changeDeleteSpeed(25)
-              .typeString(
-                addStyles("Be interesting and find interesting people")
-              )
-              .pauseFor(2500)
-              .deleteAll()
-              .changeDelay(50)
-              .changeDeleteSpeed(25)
-              .typeString(addStyles("Find your crew, make it happen"))
-              .pauseFor(2500)
-              .deleteAll()
-              .changeDelay(50)
-              .changeDeleteSpeed(25)
-              .start();
-          }}
-        />
-        <p className="text-lg mt-4">Drop your email.</p>
-        <p className="text-lg mt-2">We'll let you know when we're ready!</p>
-        <form
-          action="https://send.pageclip.co/FzLh5buxmmEsLZ1slQfz7xaoiNd8MW0a/waitlist"
-          className="pageclip-form"
-          method="post"
-        >
-          <div className="flex flex-col justify-center">
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
-              placeholder=" Name"
-            />
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
-              placeholder=" Email"
-            />
-            <button
-              type="submit"
-              className="w-80 h-10 bg-black text-white rounded mt-2 pageclip-form__submit"
-            >
-              <span>Submit</span>
-            </button>
-          </div>
-        </form>
+      <div className="flex flex-col h-screen">
+        <NavBar />
+        <div className="flex flex-col flex-grow justify-center items-center">
+          <h1 className="title text-4xl md:text-8xl font-bold text-center">Welcome to Tables </h1>
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .changeDelay(50)
+                .typeString(addStyles("For what you want not who you want"))
+                .pauseFor(2500)
+                .deleteAll()
+                .changeDeleteSpeed(25)
+                .typeString(addStyles("Build cool stuff with cool people"))
+                .pauseFor(2500)
+                .deleteAll()
+                .changeDelay(50)
+                .changeDeleteSpeed(25)
+                .typeString(
+                  addStyles("Be interesting and find interesting people")
+                )
+                .pauseFor(2500)
+                .deleteAll()
+                .changeDelay(50)
+                .changeDeleteSpeed(25)
+                .typeString(addStyles("Find your crew, make it happen"))
+                .pauseFor(2500)
+                .deleteAll()
+                .changeDelay(50)
+                .changeDeleteSpeed(25)
+                .start();
+            }}
+          />
+          <p className="text-lg mt-4">Drop your email.</p>
+          <p className="text-lg mt-2">We'll let you know when we're ready!</p>
+          <form
+            action="https://send.pageclip.co/FzLh5buxmmEsLZ1slQfz7xaoiNd8MW0a/waitlist"
+            className="pageclip-form"
+            method="post"
+          >
+            <div className="flex flex-col justify-center">
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
+                placeholder=" Name"
+              />
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
+                placeholder=" Email"
+              />
+              <button
+                type="submit"
+                className="w-80 h-10 bg-black text-white rounded mt-2 pageclip-form__submit"
+              >
+                <span>Submit</span>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
