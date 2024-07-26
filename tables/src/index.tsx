@@ -18,7 +18,7 @@ root.render(
         baseTheme: neobrutalism,
       }}
       afterSignOutUrl="/register"
-      afterSignInUrl="/chat"
+      afterSignInUrl="/feed"
     >
       <App />
     </ClerkProvider>
