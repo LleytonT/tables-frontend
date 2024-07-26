@@ -114,7 +114,7 @@ const LandingPage: React.FC = () => {
   };
 
   const searchTerm = [
-    "Anyone here making flying cars",
+    "Anyone here making flying cars?",
     "Inspiration for an awesome Cyber Security Project",
     "Anyone developing VR games using the MetaQuest",
     "Looking for a blockchain expert for a fintech project",

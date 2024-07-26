@@ -5,6 +5,7 @@ import {
   SignUpButton,
   SignOutButton,
 } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
@@ -12,12 +13,18 @@ const Navbar: React.FC = () => {
       className="flex justify-between items-center h-16 text-black relative shadow-sm font-mono"
       role="navigation"
     >
-      <div className="pl-8">Tables</div>
+      <div className="pl-8 flex items-center">
+        <Link to="/">
+          <img src="icon.png" alt="Icon" className="mr-2 h-6" />
+        </Link>
+        Tables
+      </div>
+
       <div className="flex items-center">
         <SignedOut>
           <SignInButton mode="modal">
             <button
-              className="login mr-2"
+              className="button relative mr-2"
               onClick={(e) => {
                 console.log("Login button clicked");
               }}
@@ -28,7 +35,7 @@ const Navbar: React.FC = () => {
 
           <SignUpButton mode="modal">
             <button
-              className="login mr-2"
+              className="button relative mr-2"
               onClick={(e) => {
                 console.log("Signn up button clicked");
               }}
@@ -41,7 +48,7 @@ const Navbar: React.FC = () => {
         <SignedIn>
           <SignOutButton>
             <button
-              className="login mr-2"
+              className="button relative mr-2"
               onClick={(e) => {
                 console.log("Sign out button clicked");
               }}
