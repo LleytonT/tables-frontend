@@ -91,7 +91,8 @@ const LandingPage: React.FC = () => {
           Join Our Waitlist
         </h2>
 
-        <p className="text-lg mt-4">Drop your email. We'll let you know when we're ready!</p>
+        <p className="text-lg mt-4">Drop your email.</p>
+        <p className="text-lg mt-2">We'll let you know when we're ready!</p>
 
         <form
           action="https://send.pageclip.co/FzLh5buxmmEsLZ1slQfz7xaoiNd8MW0a/waitlist"
