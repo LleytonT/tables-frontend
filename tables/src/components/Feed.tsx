@@ -10,7 +10,7 @@ type Project = {
   link: string;
 };
 
-const url = process.env.BACKEND_URL as string;
+// const url = process.env.BACKEND_URL as string;
 // Get projects from 'url/feed'
 // const projects: Project[] = fetch(`${url}/feed`)
 
@@ -131,9 +131,9 @@ function videoOrImage(project: Project) {
 
 
 const ProjectComponent: React.FC<{ project: Project }> = ({ project }) => {
-  const isVideo = (url: string) => {
-    return /\.(mp4|webm)$/i.test(url);
-  };
+  // const isVideo = (url: string) => {
+  //   return /\.(mp4|webm)$/i.test(url);
+  // };
 
   return (
       <Card style={{ width: '100%', height: '100%' }}>
