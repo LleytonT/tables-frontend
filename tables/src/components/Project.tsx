@@ -143,7 +143,7 @@ const Project: React.FC = () => {
 
     const fetchProject = async () => {
       try {
-        const response = await fetch(`${backendUrl}/projects?id=${id}`);
+        const response = await fetch(`${backendUrl}/api/getpage/?uuid=${id}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
