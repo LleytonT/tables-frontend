@@ -4,7 +4,7 @@ import { Block, BlockType, RichText, Annotations } from './ParseComponents';
 import { CopyBlock, github } from 'react-code-blocks';
 import { NavBar } from "./Navbar";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = "https://tablesofficial.azurewebsites.net";
 
 /*
   Code = "code",
