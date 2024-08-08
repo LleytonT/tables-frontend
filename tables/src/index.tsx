@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { neobrutalism } from "@clerk/themes";
 const CLERK_KEY = process.env.REACT_APP_CLERK_KEY as string;
+console.log(CLERK_KEY);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
