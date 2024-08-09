@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./pageclip.css";
 import Typewriter from 'typewriter-effect';
-import { NavBar } from "./Navbar";
+import Navbar from "./Navbar";
 
 const LandingPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -20,7 +20,7 @@ const LandingPage: React.FC = () => {
   }, []);
 
   const searchTerm = [
-    "Anyone here making flying cars",
+    "Anyone here making flying cars?",
     "Inspiration for an awesome Cyber Security Project",
     "Anyone developing VR games using the MetaQuest",
     "Looking for a blockchain expert for a fintech project",
@@ -35,7 +35,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <>
-      <NavBar />
+      <Navbar />
       <div className="flex flex-col justify-center items-center mt-32">
         <h1 className="text-6xl font-bold mb-4 text-center">
           The Community For{" "}

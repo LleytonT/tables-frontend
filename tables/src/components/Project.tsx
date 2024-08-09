@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Block, BlockType, RichText, Annotations } from './ParseComponents';
 import { CopyBlock, github } from 'react-code-blocks';
-import { NavBar } from "./Navbar";
+import Navbar from "./Navbar";
 
 const backendUrl = "https://tablesofficial.azurewebsites.net";
 
@@ -184,7 +184,7 @@ const Project: React.FC = () => {
 
 return (
     <>
-    <NavBar />
+    <Navbar />
     <div className="w-2/5 mx-auto mt-4">
         {project ? (
             <div>
