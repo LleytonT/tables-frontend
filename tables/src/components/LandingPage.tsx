@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./pageclip.css";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 import Navbar from "./Navbar";
 
 const LandingPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
 
@@ -32,6 +33,73 @@ const LandingPage: React.FC = () => {
     "Looking for a co-founder for my startup",
     "Who can help me improve the storytelling aspect of my pitch?",
   ];
+
+  const joinWaitlist = () => {
+    return (
+      <>
+        <h2 className="text-4xl text-center font-bold text-gray-900 py-4 mt-24">
+          Join Our Waitlist
+        </h2>
+
+        <p className="text-lg mt-4">Drop your email.</p>
+        <p className="text-lg mt-2">We'll let you know when we're ready!</p>
+
+        <form
+          action="https://send.pageclip.co/FzLh5buxmmEsLZ1slQfz7xaoiNd8MW0a/waitlist"
+          className="pageclip-form"
+          method="post"
+        >
+          <div className="flex flex-col justify-center">
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
+              placeholder=" Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
+              placeholder=" Email"
+              required
+            />
+            <button
+              type="submit"
+              className="w-80 h-10 bg-black text-white rounded mt-2 pageclip-form__submit"
+            >
+              <span>Submit</span>
+            </button>
+          </div>
+        </form>
+      </>
+    );
+  };
+
+  const Modal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
+    isOpen,
+    onClose,
+  }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
+        <div className="bg-white p-8 rounded shadow-lg relative z-60">
+          <button
+            className="absolute top-2 right-2 text-gray-600"
+            onClick={onClose}
+          >
+            &times;
+          </button>
+          {joinWaitlist()}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -76,6 +144,20 @@ const LandingPage: React.FC = () => {
                 />
               </div>
 
+              {/* Waitlist Button */}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg z-10"
+              >
+                Join Waitlist
+              </button>
+
+              {/* Modal */}
+              <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+              />
+
               {/* Static text for mobile */}
               <div className="block md:hidden">
                 <p className="text-center">Search anything</p>
@@ -88,46 +170,6 @@ const LandingPage: React.FC = () => {
             community and projects that matter to you.
           </p>
         </div>
-
-        <h2 className="text-4xl text-center font-bold text-gray-900 py-4 mt-24">
-          Join Our Waitlist
-        </h2>
-
-        <p className="text-lg mt-4">Drop your email.</p>
-        <p className="text-lg mt-2">We'll let you know when we're ready!</p>
-
-        <form
-          action="https://send.pageclip.co/FzLh5buxmmEsLZ1slQfz7xaoiNd8MW0a/waitlist"
-          className="pageclip-form"
-          method="post"
-        >
-          <div className="flex flex-col justify-center">
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
-              placeholder=" Name"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-80 h-10 border-solid border-2 border-black rounded shadow-sm text-black bg-white mt-2"
-              placeholder=" Email"
-              required
-            />
-            <button
-              type="submit"
-              className="w-80 h-10 bg-black text-white rounded mt-2 pageclip-form__submit"
-            >
-              <span>Submit</span>
-            </button>
-          </div>
-        </form>
 
         <section className="py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
